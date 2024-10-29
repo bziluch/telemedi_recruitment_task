@@ -8,7 +8,7 @@ use DateTime;
 
 class CurrencyRatesService
 {
-    private static array $currencies = ["EUR", "USD", "CZK", "IDR", "BRL"];
+    private static $currencies = ["EUR", "USD", "CZK", "IDR", "BRL"];
 
     public function getRates(
         \DateTime $date

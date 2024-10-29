@@ -5,9 +5,9 @@ namespace App\Model;
 class Currency
 {
 
-    private string $name;
-    private string $code;
-    private array $rates = [];
+    private $name;
+    private $code;
+    private $rates = [];
 
     public function __construct(string $name, string $code) {
         $this->name = $name;

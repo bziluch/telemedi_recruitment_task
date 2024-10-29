@@ -2,22 +2,16 @@
 
 namespace App\Model;
 
-use Symfony\Component\Serializer\Annotation\Context;
-use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
-
 class CurrencyRate
 {
-    private static array $sellable = ["EUR", "USD"];
+    private static $sellable = ["EUR", "USD"];
 
-    #[Context(
-        normalizationContext: [DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'],
-    )]
-    private \DateTime|string $effectiveDate = 'today';
-    private float $rate;
-    private float $sellRate;
-    private ?float $buyRate = null;
+    private $effectiveDate = 'today';
+    private $rate;
+    private $sellRate;
+    private $buyRate = null;
 
-    public function __construct(string $code, float $rate, \DateTime|null $effectiveDate = null) {
+    public function __construct(string $code, float $rate, ?\DateTime $effectiveDate = null) {
 
         if (null !== $effectiveDate) {
             $this->effectiveDate = $effectiveDate;
