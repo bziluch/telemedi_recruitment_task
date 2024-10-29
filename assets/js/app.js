@@ -15,9 +15,20 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import '../css/app.css';
 import Home from './components/Home';
+import ExchangeRates from "./components/ExchangeRates";
 
-ReactDOM.render(<Router><Home /></Router>, document.getElementById('root'));
-
+ReactDOM.render(
+    <Router>
+        <Switch>
+            <Route path={"/setup-check"}>
+                <Home />
+            </Route>
+            <Route path={"/exchange-rates"}>
+                <ExchangeRates />
+            </Route>
+        </Switch>
+    </Router>
+, document.getElementById('root'));
